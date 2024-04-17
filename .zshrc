@@ -133,6 +133,7 @@ lsfind ()
 {
     ll "$1" | grep "$2"
 }
+alias minecraft='java -jar ~/Games/TLauncher-2.899/TLauncher-2.899.jar && exit'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -142,3 +143,11 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # Fnm
 eval "$(fnm env --use-on-cd)"
+
+# pnpm
+export PNPM_HOME="/home/vasu/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
