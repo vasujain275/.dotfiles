@@ -29,4 +29,7 @@ return {
       vim.cmd 'cnoreabbrev rename Rename'
     end,
   },
+  {
+    'xiyaowong/transparent.nvim',
+  },
 }
