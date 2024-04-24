@@ -5,6 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -105,6 +106,7 @@ alias ssh='kitten ssh'
 alias gac='git add . && git commit -m'
 alias gs='git status'
 alias gpush='git push origin'
+alias lg='lazygit'
 
 # Important Aliases
 alias yd='yt-dlp -f "bestvideo[height<=1080]+bestaudio" --embed-chapters --external-downloader aria2c --concurrent-fragments 4'
@@ -112,7 +114,7 @@ alias td='yt-dlp --external-downloader aria2c -o "%(title)s."'
 alias vim='nvim'
 alias grep='grep --color=auto'
 alias ghistory='cat ~/.zsh_history | fzf'
-alias up='yay -Syu && flatpak update'
+alias up='sudo pacman -Sy && sudo pacman -Su && yay -Su'
 
 # VPN Aliases
 alias vpn-up='sudo tailscale up --exit-node=raspberrypi --accept-routes'
@@ -125,6 +127,7 @@ warp ()
 # Utils Aliases
 alias apps-space='expac -H M "%011m\t%-20n\t%10d" $(comm -23 <(pacman -Qqe | sort) <(pacman -Qqg base base-devel | sort)) | sort -n'
 alias files-space='sudo ncdu --exclude /.snapshots /'
+alias ld='lazydocker'
 
 # Other Aliases
 alias cr='mpv --yt-dlp-raw-options=cookies-from-browser=firefox'
