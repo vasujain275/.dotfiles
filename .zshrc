@@ -67,8 +67,8 @@ z4h source ~/.env.zsh
 # Use additional Git repositories pulled in with `z4h install`.
 #
 # This is just an example that you should delete. It does nothing useful.
-z4h source ohmyzsh/ohmyzsh/lib/diagnostics.zsh  # source an individual file
-z4h load   ohmyzsh/ohmyzsh/plugins/emoji-clock  # load a plugin
+# z4h source ohmyzsh/ohmyzsh/lib/diagnostics.zsh  # source an individual file
+# z4h load   ohmyzsh/ohmyzsh/plugins/emoji-clock  # load a plugin
 
 # Define key bindings.
 z4h bindkey z4h-backward-kill-word  Ctrl+Backspace     Ctrl+H
@@ -100,6 +100,7 @@ alias ld='eza -lhD --icons=auto' # long list dirs
 alias mkdir='mkdir -p'
 alias ssh='kitten ssh'
 alias tree='tree -a -I .git'
+alias cat='bat'
 
 # Git Aliases
 alias gac='git add . && git commit -m'
@@ -111,7 +112,7 @@ alias lg='lazygit'
 alias yd='yt-dlp -f "bestvideo[height<=1080]+bestaudio" --embed-chapters --external-downloader aria2c --concurrent-fragments 4'
 alias td='yt-dlp --external-downloader aria2c -o "%(title)s."'
 alias vim='nvim'
-alias grep='grep --color=auto'
+alias grep='rg --color=auto'
 alias ghistory='cat ~/.zsh_history | fzf'
 alias up='sudo pacman -Sy && sudo pacman -Su && yay -Su'
 
