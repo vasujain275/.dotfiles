@@ -21,5 +21,4 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 
-scripts
 .config/tmux/plugins
