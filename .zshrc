@@ -43,7 +43,7 @@ alias gpush='git push origin'
 alias lg='lazygit'
 
 # Important Aliases
-alias yd='yt-dlp -f "bestvideo[height<=1080]+bestaudio" --embed-chapters --external-downloader aria2c --concurrent-fragments 4'
+alias yd='yt-dlp -f "bestvideo[height<=1080]+bestaudio" --embed-chapters --external-downloader aria2c --concurrent-fragments 8 --throttled-rate 100K'
 alias td='yt-dlp --external-downloader aria2c -o "%(title)s."'
 alias vim='nvim'
 alias grep='rg --color=auto'
