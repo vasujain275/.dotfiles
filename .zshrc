@@ -92,11 +92,68 @@ compdef _directories md
 # Define named directories: ~w <=> Windows home directory on WSL.
 [[ -z $z4h_win_home ]] || hash -d w=$z4h_win_home
 
-# Define aliases.
-alias tree='tree -a -I .git'
+# Helpful aliases
 
-# Add flags to existing aliases.
-alias ls="${aliases[ls]:-ls} -A"
+# Handy change dir shortcuts
+alias ..='cd ..'
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+# Helpful Aliases
+alias l='eza -lh  --icons=auto'
+alias ls='eza -1   --icons=auto' # short list
+alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
+alias ld='eza -lhD --icons=auto' # long list dirs
+alias mkdir='mkdir -p'
+alias ssh='kitten ssh'
+alias tree='tree -a -I .git'
+alias cat='bat'
+alias c='clear' # clear terminal
+alias mkdir='mkdir -p'
+
+# Git Aliases
+alias gac='git add . && git commit -m'
+alias gs='git status'
+alias gpush='git push origin'
+alias lg='lazygit'
+
+# Important Aliases
+alias yd='yt-dlp -f "bestvideo[height<=1080]+bestaudio" --embed-chapters --external-downloader aria2c --concurrent-fragments 8 --throttled-rate 100K'
+alias td='yt-dlp --external-downloader aria2c -o "%(title)s."'
+alias vim='nvim'
+alias grep='rg --color=auto'
+alias ghistory='cat ~/.zsh_history | fzf'
+alias up='sudo pacman -Sy && sudo pacman -Su && yay -Su'
+
+# VPN Aliases
+alias vpn-up='sudo tailscale up --exit-node=raspberrypi --accept-routes'
+alias vpn-down='sudo tailscale down'
+warp ()
+{
+    sudo systemctl "$1" warp-svc
+}
+
+# Utils Aliases
+alias apps-space='expac -H M "%011m\t%-20n\t%10d" $(comm -23 <(pacman -Qqe | sort) <(pacman -Qqg base base-devel | sort)) | sort -n'
+alias files-space='sudo ncdu --exclude /.snapshots /'
+alias ld='lazydocker'
+
+# Other Aliases
+alias cr='mpv --yt-dlp-raw-options=cookies-from-browser=firefox'
+alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT1'
+lsfind ()
+{
+    ll "$1" | grep "$2"
+}
+
+
+# Zoxide
+eval "$(zoxide init --cmd cd zsh)"
+
+# Fnm
+eval "$(fnm env --use-on-cd)"
 
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt glob_dots     # no special treatment for file names with a leading dot
