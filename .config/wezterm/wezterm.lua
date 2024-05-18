@@ -4,7 +4,7 @@ local wezterm = require("wezterm")
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
-config.color_scheme = "Builtin Dark"
+config.color_scheme = "Catppuccin Mocha"
 config.term = "xterm-256color"
 
 config.font = wezterm.font("JetBrainsMono Nerd Font")
