@@ -26,7 +26,7 @@ zinit light zsh-users/zsh-autosuggestions
 # Add in snippets
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
+# zinit snippet OMZP::archlinux
 zinit snippet OMZP::command-not-found
 
 # Load completions
@@ -49,7 +49,7 @@ setopt hist_find_no_dups
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # zstyle ':completion:*' menu no
 # zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza $realpath'
 # zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza $realpath'
@@ -75,8 +75,7 @@ alias c='clear' # clear terminal
 alias mkdir='mkdir -p'
 
 # Git Aliases
-alias gac='git add . && git commit -m'
-alias gs='git status'
+alias gac='git add . && git commit -m' alias gs='git status'
 alias gpush='git push origin'
 alias lg='lazygit'
 
@@ -86,7 +85,32 @@ alias td='yt-dlp --external-downloader aria2c -o "%(title)s."'
 alias vim='nvim'
 alias grep='rg --color=auto'
 alias ghistory='cat ~/.zsh_history | fzf'
-alias up='sudo pacman -Sy && sudo pacman -Su && yay -Su'
+alias download='aria2c --split=16 --max-connection-per-server=16 --timeout=600 --max-download-limit=10M --file-allocation=none'
+
+function up() {
+  echo ":: Checking Arch Linux PGP Keyring..."
+  local installedver="$(LANG= sudo pacman -Qi archlinux-keyring | grep -Po '(?<=Version         : ).*')"
+  local currentver="$(LANG= sudo pacman -Si archlinux-keyring | grep -Po '(?<=Version         : ).*')"
+  if [ $installedver != $currentver ]; then
+    echo " Arch Linux PGP Keyring is out of date."
+    echo " Updating before full system upgrade."
+    sudo pacman -Sy --needed --noconfirm archlinux-keyring
+  else
+    echo " Arch Linux PGP Keyring is up to date."
+    echo " Proceeding with full system upgrade."
+  fi
+  if (( $+commands[yay] )); then
+    yay -Syu
+  elif (( $+commands[trizen] )); then
+    trizen -Syu
+  elif (( $+commands[pacaur] )); then
+    pacaur -Syu
+  elif (( $+commands[aura] )); then
+    sudo aura -Syu
+  else
+    sudo pacman -Syu
+  fi
+}
 
 # VPN Aliases
 alias vpn-up='sudo tailscale up --exit-node=raspberrypi --accept-routes'
@@ -102,7 +126,7 @@ alias files-space='sudo ncdu --exclude /.snapshots /'
 alias ld='lazydocker'
 
 # Other Aliases
-alias cr='mpv --yt-dlp-raw-options=cookies-from-browser=firefox'
+alias cr='mpv --yt-dlp-raw-options=cookies-from-browser=brave'
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT1'
 lsfind ()
 {
@@ -111,7 +135,7 @@ lsfind ()
 
 
 # Shell Intergrations
-# eval "$(fzf --zsh)"
+eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd)"
