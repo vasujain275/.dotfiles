@@ -64,6 +64,7 @@ alias ssh='kitten ssh'
 alias tree='tree -a -I .git'
 alias cat='bat'
 alias c='clear' # clear terminal
+alias e='exit'
 alias mkdir='mkdir -p'
 alias vim='nvim'
 alias grep='rg --color=auto'
@@ -92,6 +93,7 @@ alias files-space='sudo ncdu --exclude /.snapshots /'
 alias ld='lazydocker'
 alias cr='mpv --yt-dlp-raw-options=cookies-from-browser=brave'
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT1'
+alias y='yazi'
 lsfind ()
 {
     ll "$1" | grep "$2"
