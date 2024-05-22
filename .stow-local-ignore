@@ -22,3 +22,4 @@ _darcs
 .config/tmux/plugins
 bin
 bk
+services
