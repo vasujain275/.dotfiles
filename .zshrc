@@ -99,6 +99,14 @@ lsfind ()
     ll "$1" | grep "$2"
 }
 
+# X11 Clipboard Aliases `xsel`
+alias pbcopy='xsel --input --clipboard'
+alias pbpaste='xsel --output --clipboard'
+
+# Wayland Clipboard Aliases `wl-clipboard`
+# alias pbcopy='wl-copy'
+# alias pbpaste='wl-paste'
+
 # Update and Ugrade Arch
 function up() {
   echo ":: Checking Arch Linux PGP Keyring..."
@@ -123,6 +131,7 @@ function up() {
   else
     sudo pacman -Syu
   fi
+  flatpak update
 }
 
 
