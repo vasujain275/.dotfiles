@@ -91,7 +91,8 @@ warp ()
 alias apps-space='expac -H M "%011m\t%-20n\t%10d" $(comm -23 <(pacman -Qqe | sort) <(pacman -Qqg base base-devel | sort)) | sort -n'
 alias files-space='sudo ncdu --exclude /.snapshots /'
 alias ld='lazydocker'
-alias cr='mpv --yt-dlp-raw-options=cookies-from-browser=brave'
+alias crdown='mpv --yt-dlp-raw-options=cookies-from-browser=brave'
+alias cr='cargo run'
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT1'
 alias y='yazi'
 lsfind ()
