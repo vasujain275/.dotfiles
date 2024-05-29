@@ -100,12 +100,12 @@ lsfind ()
 }
 
 # X11 Clipboard Aliases `xsel`
-alias pbcopy='xsel --input --clipboard'
-alias pbpaste='xsel --output --clipboard'
+# alias pbcopy='xsel --input --clipboard'
+# alias pbpaste='xsel --output --clipboard'
 
 # Wayland Clipboard Aliases `wl-clipboard`
-# alias pbcopy='wl-copy'
-# alias pbpaste='wl-paste'
+alias pbcopy='wl-copy'
+alias pbpaste='wl-paste'
 
 # Update and Ugrade Arch
 function up() {
