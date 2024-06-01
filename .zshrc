@@ -142,6 +142,9 @@ eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd)"
 
+
+# Export Paths
+
 # pnpm
 export PNPM_HOME="/home/vasu/.local/share/pnpm"
 case ":$PATH:" in
@@ -149,3 +152,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Cargo Bin
+export PATH="$HOME/.cargo/bin:$PATH"
+
