@@ -26,11 +26,11 @@
         "custom/empty"
     ],
     "modules-right": [
+        "tray",
         "pulseaudio",
         "bluetooth",
         "battery", 
         "network",
         "clock",
-        "tray",
     ]
 }
