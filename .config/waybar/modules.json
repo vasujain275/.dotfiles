@@ -110,14 +110,12 @@
     },
 
     // Clock
-    "clock": {
-        "format": "{:%H:%M %a}",
-        // "timezone": "Asia/Kolkata",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        // START CLOCK FORMAT
-        "format-alt": "{:%Y-%m-%d}"
-        // END CLOCK FORMAT
-    },
+  "clock": {
+  	"interval": 60,
+  	"tooltip": true,
+  	"format": "{:%H.%M}",
+  	"tooltip-format": "{:%Y-%m-%d}",
+  },
 
     // Network
     "network": {
