@@ -28,7 +28,7 @@
     "modules-right": [
         "tray",
         "pulseaudio",
-        "bluetooth",
+        // "bluetooth",
         "battery", 
         "network",
         "custom/cliphist",
