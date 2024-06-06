@@ -30,7 +30,7 @@
         "pulseaudio",
         // "bluetooth",
         "battery", 
-        "network",
+        // "network",
         // "custom/cliphist",
         "clock",
     ]
