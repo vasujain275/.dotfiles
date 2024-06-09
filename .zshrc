@@ -68,6 +68,8 @@ alias e='exit'
 alias mkdir='mkdir -p'
 alias vim='nvim'
 alias grep='rg --color=auto'
+alias ssn='sudo shutdown now'
+alias srn='sudo reboot now'
 
 # Git Aliases
 alias gac='git add . && git commit -m' alias gs='git status'
