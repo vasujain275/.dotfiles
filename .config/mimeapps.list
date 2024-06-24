@@ -1,10 +1,24 @@
 [Added Associations]
 video/quicktime=mpv-2.desktop;
+audio/*=mpv-2.desktop;
+video/*=mpv-2.desktop;
+application/pdf=firefox.desktop;
+image/*=firefox.desktop;
+text/html=firefox.desktop;
+x-scheme-handler/about=firefox.desktop;
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/unknown=firefox.desktop;
+inode/directory=thunar.desktop;
 
 [Default Applications]
-text/html=brave-browser.desktop
-video/quicktime=mpv-2.desktop;
-x-scheme-handler/about=brave-browser.desktop
-x-scheme-handler/http=brave-browser.desktop
-x-scheme-handler/https=brave-browser.desktop
-x-scheme-handler/unknown=brave-browser.desktop
+audio/*=mpv-2.desktop;
+video/*=mpv-2.desktop;
+application/pdf=firefox.desktop;
+image/*=firefox.desktop;
+text/html=firefox.desktop;
+x-scheme-handler/about=firefox.desktop;
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/unknown=firefox.desktop;
+inode/directory=thunar.desktop;
