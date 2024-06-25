@@ -27,6 +27,12 @@ zinit snippet OMZP::command-not-found
 
 zinit cdreplay -q
 
+# Keybindings
+bindkey -e
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+bindkey '^[w' kill-region
+
 # History
 HISTSIZE=500000
 HISTFILE=~/.zsh_history
