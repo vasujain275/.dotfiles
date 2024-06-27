@@ -33,42 +33,72 @@ return {
   {
     'xiyaowong/transparent.nvim',
   },
-  -- {
-  --   'mfussenegger/nvim-lint',
-  --   event = {
-  --     'BufReadPre',
-  --     'BufNewFile',
-  --   },
-  --   config = function()
-  --     local lint = require 'lint'
-  --
-  --     lint.linters_by_ft = {
-  --       javascript = { 'eslint' },
-  --       typescript = { 'eslint' },
-  --       javascriptreact = { 'eslint' },
-  --       typescriptreact = { 'eslint' },
-  --       svelte = { 'eslint' },
-  --     }
-  --
-  --     local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
-  --
-  --     vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
-  --       group = lint_augroup,
-  --       callback = function()
-  --         lint.try_lint()
-  --       end,
-  --     })
-  --
-  --     vim.keymap.set('n', '<leader>ll', function()
-  --       lint.try_lint()
-  --     end, { desc = 'Trigger linting for current file' })
-  --   end,
-  -- },
   {
-    'mhartington/formatter.nvim',
-    event = 'VeryLazy',
-    opts = function()
-      return require 'custom.configs.formatter'
+    'mfussenegger/nvim-lint',
+    event = { 'BufReadPre', 'BufNewFile' },
+    config = function()
+      local lint = require 'lint'
+
+      lint.linters_by_ft = {
+        javascript = { 'biomejs' },
+        typescript = { 'biomejs' },
+        javascriptreact = { 'biomejs' },
+        typescriptreact = { 'biomejs' },
+        svelte = { 'biomejs' },
+        -- python = { 'pylint' },
+      }
+
+      local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
+
+      vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
+        group = lint_augroup,
+        callback = function()
+          lint.try_lint()
+        end,
+      })
+
+      vim.keymap.set('n', '<leader>l', function()
+        lint.try_lint()
+      end, { desc = 'Trigger linting for current file' })
+    end,
+  },
+  {
+    'stevearc/conform.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
+    config = function()
+      local conform = require 'conform'
+
+      conform.setup {
+        formatters_by_ft = {
+          javascript = { 'biome' },
+          typescript = { 'biome' },
+          javascriptreact = { 'biome' },
+          typescriptreact = { 'biome' },
+          svelte = { 'biome' },
+          css = { 'biome' },
+          html = { 'biome' },
+          json = { 'biome' },
+          yaml = { 'biome' },
+          markdown = { 'biome' },
+          graphql = { 'biome' },
+          liquid = { 'biome' },
+          -- lua = { 'stylua' },
+          -- python = { 'isort', 'black' },
+        },
+        format_on_save = {
+          lsp_fallback = true,
+          async = false,
+          timeout_ms = 1000,
+        },
+      }
+
+      vim.keymap.set({ 'n', 'v' }, '<leader>mp', function()
+        conform.format {
+          lsp_fallback = true,
+          async = false,
+          timeout_ms = 1000,
+        }
+      end, { desc = 'Format file or range (in visual mode)' })
     end,
   },
   {

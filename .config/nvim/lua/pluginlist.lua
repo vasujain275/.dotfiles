@@ -248,15 +248,7 @@ return {
       local servers = {
         clangd = {},
         rust_analyzer = {},
-
-        tsserver = {
-          init_options = {
-            prefrences = {
-              disableSuggestions = true,
-            },
-          },
-        },
-
+        biome = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes { ...},
@@ -295,15 +287,13 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format lua code
-        'typescript-language-server',
         'svelte',
         'tailwindcss',
-        'eslint-lsp',
         'clangd',
         'lua_ls',
         'prismals',
         'rust_analyzer',
-        'prettier',
+        'biome',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
