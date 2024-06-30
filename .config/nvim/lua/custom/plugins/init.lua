@@ -11,33 +11,33 @@ return {
     end,
   },
   {
-    "windwp/nvim-autopairs",
-    event = { "InsertEnter" },
+    'windwp/nvim-autopairs',
+    event = { 'InsertEnter' },
     dependencies = {
-      "hrsh7th/nvim-cmp",
+      'hrsh7th/nvim-cmp',
     },
     config = function()
       -- import nvim-autopairs
-      local autopairs = require("nvim-autopairs")
+      local autopairs = require 'nvim-autopairs'
 
       -- configure autopairs
-      autopairs.setup({
-        check_ts = true,                      -- enable treesitter
+      autopairs.setup {
+        check_ts = true, -- enable treesitter
         ts_config = {
-          lua = { "string" },                 -- don't add pairs in lua string treesitter nodes
-          javascript = { "template_string" }, -- don't add pairs in javscript template_string treesitter nodes
-          java = false,                       -- don't check treesitter on java
+          lua = { 'string' }, -- don't add pairs in lua string treesitter nodes
+          javascript = { 'template_string' }, -- don't add pairs in javscript template_string treesitter nodes
+          java = false, -- don't check treesitter on java
         },
-      })
+      }
 
       -- import nvim-autopairs completion functionality
-      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+      local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
 
       -- import nvim-cmp plugin (completions plugin)
-      local cmp = require("cmp")
+      local cmp = require 'cmp'
 
       -- make autopairs and completion work together
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+      cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
     end,
   },
   {
@@ -62,12 +62,12 @@ return {
       local lint = require 'lint'
 
       lint.linters_by_ft = {
-        javascript = { 'biomejs' },
-        typescript = { 'biomejs' },
-        javascriptreact = { 'biomejs' },
-        typescriptreact = { 'biomejs' },
-        svelte = { 'biomejs' },
-        -- python = { 'pylint' },
+        javascript = { 'eslint_d' },
+        typescript = { 'eslint_d' },
+        javascriptreact = { 'eslint_d' },
+        typescriptreact = { 'eslint_d' },
+        svelte = { 'eslint_d' },
+        python = { 'pylint' },
       }
 
       local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
@@ -92,20 +92,20 @@ return {
 
       conform.setup {
         formatters_by_ft = {
-          javascript = { 'biome' },
-          typescript = { 'biome' },
-          javascriptreact = { 'biome' },
-          typescriptreact = { 'biome' },
-          svelte = { 'biome' },
-          css = { 'biome' },
-          html = { 'biome' },
-          json = { 'biome' },
-          yaml = { 'biome' },
-          markdown = { 'biome' },
-          graphql = { 'biome' },
-          liquid = { 'biome' },
-          -- lua = { 'stylua' },
-          -- python = { 'isort', 'black' },
+          javascript = { 'prettier' },
+          typescript = { 'prettier' },
+          javascriptreact = { 'prettier' },
+          typescriptreact = { 'prettier' },
+          svelte = { 'prettier' },
+          css = { 'prettier' },
+          html = { 'prettier' },
+          json = { 'prettier' },
+          yaml = { 'prettier' },
+          markdown = { 'prettier' },
+          graphql = { 'prettier' },
+          liquid = { 'prettier' },
+          lua = { 'stylua' },
+          python = { 'isort', 'black' },
         },
         format_on_save = {
           lsp_fallback = true,
@@ -184,5 +184,24 @@ return {
       }
     end,
     dependencies = { { 'nvim-tree/nvim-web-devicons' } },
+  },
+  {
+    'kdheepak/lazygit.nvim',
+    cmd = {
+      'LazyGit',
+      'LazyGitConfig',
+      'LazyGitCurrentFile',
+      'LazyGitFilter',
+      'LazyGitFilterCurrentFile',
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    -- setting the keybinding for LazyGit with 'keys' is recommended in
+    -- order to load the plugin when the command is run for the first time
+    keys = {
+      { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'Open lazy git' },
+    },
   },
 }
