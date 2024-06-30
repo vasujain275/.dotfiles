@@ -2,7 +2,7 @@ return {
 
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
-  { 'numToStr/Comment.nvim',    opts = {} },
+  { 'numToStr/Comment.nvim', opts = {} },
 
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -17,7 +17,7 @@ return {
     },
   },
 
-  {                     -- Useful plugin to show you pending keybinds.
+  { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VeryLazy', -- Sets the loading event to 'VeryLazy'
     config = function() -- This is the function that runs, AFTER loading
@@ -301,11 +301,11 @@ return {
         'prismals',
         'pyright',
         'prettier', -- prettier formatter
-        'stylua',   -- lua formatter
-        'isort',    -- python formatter
-        'black',    -- python formatter
+        'stylua', -- lua formatter
+        'isort', -- python formatter
+        'black', -- python formatter
         'pylint',
-        'eslint_d',
+        'eslint',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -467,7 +467,7 @@ return {
     name = 'rose-pine',
     config = function()
       require('rose-pine').setup {
-        variant = 'auto',      -- auto, main, moon, or dawn
+        variant = 'auto', -- auto, main, moon, or dawn
         dark_variant = 'main', -- main, moon, or dawn
         dim_inactive_windows = false,
         extend_background_behind_borders = true,
@@ -475,7 +475,7 @@ return {
         enable = {
           terminal = true,
           legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
-          migrations = true,        -- Handle deprecated options automatically
+          migrations = true, -- Handle deprecated options automatically
         },
 
         styles = {
@@ -580,26 +580,26 @@ return {
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup {
         ensure_installed = {
-          "json",
-          "javascript",
-          "typescript",
-          "tsx",
-          "yaml",
-          "html",
-          "css",
-          "prisma",
-          "markdown",
-          "markdown_inline",
-          "svelte",
-          "graphql",
-          "bash",
-          "lua",
-          "vim",
-          "dockerfile",
-          "gitignore",
-          "query",
-          "vimdoc",
-          "c",
+          'json',
+          'javascript',
+          'typescript',
+          'tsx',
+          'yaml',
+          'html',
+          'css',
+          'prisma',
+          'markdown',
+          'markdown_inline',
+          'svelte',
+          'graphql',
+          'bash',
+          'lua',
+          'vim',
+          'dockerfile',
+          'gitignore',
+          'query',
+          'vimdoc',
+          'c',
         },
         -- Autoinstall languages that are not installed
         auto_install = true,
