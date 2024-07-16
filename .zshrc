@@ -78,7 +78,8 @@ alias ssn='sudo shutdown now'
 alias srn='sudo reboot now'
 
 # Git Aliases
-alias gac='git add . && git commit -m' alias gs='git status'
+alias gac='git add . && git commit -m'
+alias gs='git status'
 alias gpush='git push origin'
 alias lg='lazygit'
 
@@ -169,3 +170,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # export JAVA_HOME="/opt/android-studio/jbr"
 # export ANDROID_HOME="$HOME/Android/Sdk"
 # export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
+
+# Turso
+export PATH="$PATH:/home/vasu/.turso"
