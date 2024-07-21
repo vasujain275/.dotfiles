@@ -27,12 +27,12 @@
         "break",
         {
             "type": "os",
-            "key": " ",
+            "key": " ",
             "keyColor": "34",  // = color4
         },
         {
             "type": "kernel",
-            "key": " ",
+            "key": " ",
             "keyColor": "34",
         },
         {
