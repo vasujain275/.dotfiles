@@ -23,7 +23,7 @@ zinit light zsh-users/zsh-autosuggestions
 # Add in snippets
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
-zinit snippet OMZP::command-not-found
+# zinit snippet OMZP::command-not-found
 
 zinit cdreplay -q
 
