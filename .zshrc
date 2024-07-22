@@ -21,7 +21,7 @@ zinit light zsh-users/zsh-autosuggestions
 
 
 # Add in snippets
-zinit snippet OMZP::git
+#zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 # zinit snippet OMZP::command-not-found
 
@@ -118,38 +118,10 @@ lsfind ()
 alias pbcopy='wl-copy'
 alias pbpaste='wl-paste'
 
-# Update and Ugrade Arch
-function up() {
-  echo ":: Checking Arch Linux PGP Keyring..."
-  local installedver="$(LANG= sudo pacman -Qi archlinux-keyring | grep -Po '(?<=Version         : ).*')"
-  local currentver="$(LANG= sudo pacman -Si archlinux-keyring | grep -Po '(?<=Version         : ).*')"
-  if [ $installedver != $currentver ]; then
-    echo " Arch Linux PGP Keyring is out of date."
-    echo " Updating before full system upgrade."
-    sudo pacman -Sy --needed --noconfirm archlinux-keyring
-  else
-    echo " Arch Linux PGP Keyring is up to date."
-    echo " Proceeding with full system upgrade."
-  fi
-  if (( $+commands[yay] )); then
-    yay -Syu
-  elif (( $+commands[trizen] )); then
-    trizen -Syu
-  elif (( $+commands[pacaur] )); then
-    pacaur -Syu
-  elif (( $+commands[aura] )); then
-    sudo aura -Syu
-  else
-    sudo pacman -Syu
-  fi
-  flatpak update
-}
-
-
 # Shell Intergrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd)"
 
 
@@ -172,4 +144,4 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
 
 # Turso
-export PATH="$PATH:/home/vasu/.turso"
+# export PATH="$PATH:/home/vasu/.turso"

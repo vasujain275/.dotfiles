@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Get a list of all generations, except the last two
+generations=$(sudo nix-env --list-generations | awk '{print $1}' | tail -n +3)
+
+# Check if there are any generations to delete
+if [ -z "$generations" ]; then
+    echo "No old generations to delete."
+    exit 0
+fi
+
+# Remove all but the last two generations
+for gen in $generations; do
+    echo "Deleting generation $gen"
+    sudo nix-env --delete-generation $gen
+done
+
+# Clean up unused packages and generations
+echo "Cleaning up unused packages and generations"
+sudo nix-collect-garbage -d
+
+echo "Cleanup completed."
+
