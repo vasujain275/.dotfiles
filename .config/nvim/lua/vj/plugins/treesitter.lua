@@ -1,5 +1,5 @@
 return {
-    { -- Highlight, edit, and navigate code
+  { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     config = function()
@@ -7,30 +7,30 @@ return {
 
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup {
-        ensure_installed = {
-          'json',
-          'javascript',
-          'typescript',
-          'tsx',
-          'yaml',
-          'html',
-          'css',
-          'prisma',
-          'markdown',
-          'markdown_inline',
-          'svelte',
-          'graphql',
-          'bash',
-          'lua',
-          'vim',
-          'dockerfile',
-          'gitignore',
-          'query',
-          'vimdoc',
-          'c',
-        },
-        -- Autoinstall languages that are not installed
-        auto_install = true,
+        -- ensure_installed = {
+        --   'json',
+        --   'javascript',
+        --   'typescript',
+        --   'tsx',
+        --   'yaml',
+        --   'html',
+        --   'css',
+        --   'prisma',
+        --   'markdown',
+        --   'markdown_inline',
+        --   'svelte',
+        --   'graphql',
+        --   'bash',
+        --   'lua',
+        --   'vim',
+        --   'dockerfile',
+        --   'gitignore',
+        --   'query',
+        --   'vimdoc',
+        --   'c',
+        -- },
+        -- -- Autoinstall languages that are not installed
+        -- auto_install = true,
         highlight = { enable = true },
         indent = { enable = true },
       }
