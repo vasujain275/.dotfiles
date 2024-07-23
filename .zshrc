@@ -122,6 +122,7 @@ alias pbpaste='wl-paste'
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 # eval "$(starship init zsh)"
+# eval "$(oh-my-posh init zsh)"
 eval "$(fnm env --use-on-cd)"
 
 
