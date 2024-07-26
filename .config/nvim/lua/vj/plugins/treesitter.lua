@@ -1,5 +1,5 @@
 return {
-    { -- Highlight, edit, and navigate code
+  { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     config = function()
@@ -12,6 +12,7 @@ return {
           'javascript',
           'typescript',
           'tsx',
+          'go',
           'yaml',
           'html',
           'css',

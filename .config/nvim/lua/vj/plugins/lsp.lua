@@ -101,7 +101,16 @@ return {
       local servers = {
         clangd = {},
         rust_analyzer = {},
-        biome = {},
+        gopls = {
+          settings = {
+            completeUnimported = true,
+            usePlaceholders = true,
+            analyses = {
+              unusedparams = true,
+            },
+          },
+        },
+        tsserver = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes { ...},
@@ -143,6 +152,8 @@ return {
         'lua_ls',
         'rust_analyzer',
         -- 'biome',
+        'gopls',
+        'delve',
         'tsserver',
         'html',
         'cssls',
