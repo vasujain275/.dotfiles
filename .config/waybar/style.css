@@ -1,63 +1,59 @@
-/* -----------------------------------------------------
- * Import Pywal colors 
- * ----------------------------------------------------- */
-/* @import 'style-light.css'; */
-@define-color backgroundlight #FFFFFF;
-@define-color backgrounddark #FFFFFF;
-@define-color workspacesbackground1 #FFFFFF;
-@define-color workspacesbackground2 #CCCCCC;
-@define-color bordercolor #FFFFFF;
-@define-color textcolor1 #000000;
-@define-color textcolor2 #000000;
-@define-color textcolor3 #FFFFFF;
-@define-color iconcolor #FFFFFF;
+@define-color backgroundlight #191724; /* Base */
+@define-color backgrounddark #1f1d2e; /* Surface */
+@define-color workspacesbackground1 #26233a; /* Overlay */
+@define-color workspacesbackground2 #403d52; /* Subtle */
+@define-color bordercolor #26233a; /* Overlay */
+@define-color textcolor1 #e0def4; /* Text */
+@define-color textcolor2 #6e6a86; /* Subtle Text */
+@define-color textcolor3 #e0def4; /* Text */
+@define-color iconcolor #eb6f92; /* Love */
 
 /* -----------------------------------------------------
  * General 
  * ----------------------------------------------------- */
 
 * {
-    font-family: "Fira Sans semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    border: none;
-    border-radius: 0px;
+  font-family: "Fira Sans semibold", FontAwesome, Roboto, Helvetica, Arial,
+    sans-serif;
+  border: none;
+  border-radius: 0px;
 }
 
 window#waybar {
-    background-color: rgba(0,0,0,0.4);
-    border-bottom: 0px solid #ffffff;
-    /* color: #FFFFFF; */
-    transition-property: background-color;
-    transition-duration: .5s;
+  background-color: rgba(31, 29, 46, 0.4); /* Surface */
+  border-bottom: 0px solid #403d52; /* Subtle */
+  transition-property: background-color;
+  transition-duration: 0.5s;
 }
 
 /* -----------------------------------------------------
  * Workspaces 
  * ----------------------------------------------------- */
 
- #workspaces {
-    margin: 3px 7px 3px 3px;
-    border: 0px;
-    font-size: 14px;
-    color: @textcolor1;
+#workspaces {
+  margin: 3px 7px 3px 3px;
+  border: 0px;
+  font-size: 14px;
+  color: @textcolor1;
 }
 
 #workspaces button {
-    border: 0px;
-    margin:4px 5px 4px 0px;
-    padding:0px 4px 0px 4px;
-    color: @textcolor3;
-    transition: all 0.5s ease-in-out;
+  border: 0px;
+  margin: 4px 5px 4px 0px;
+  padding: 0px 4px 0px 4px;
+  color: @textcolor3;
+  transition: all 0.5s ease-in-out;
 }
 
 #workspaces button.active {
-    color: @textcolor1;
-    background: @workspacesbackground2;
+  color: @textcolor1;
+  background: @workspacesbackground2;
 }
 
 #workspaces button:hover {
-    color: @textcolor1;
-    background: @workspacesbackground2;
-    border-radius: 15px;
+  color: @textcolor1;
+  background: @workspacesbackground2;
+  border-radius: 15px;
 }
 
 /* -----------------------------------------------------
@@ -65,15 +61,15 @@ window#waybar {
  * ----------------------------------------------------- */
 
 tooltip {
-    border-radius: 10px;
-    background-color: @backgroundlight;
-    opacity:0.8;
-    padding:20px;
-    margin:0px;
+  border-radius: 10px;
+  background-color: @backgroundlight;
+  opacity: 0.8;
+  padding: 20px;
+  margin: 0px;
 }
 
 tooltip label {
-    color: @textcolor2;
+  color: @textcolor2;
 }
 
 /* -----------------------------------------------------
@@ -81,15 +77,15 @@ tooltip label {
  * ----------------------------------------------------- */
 
 #window {
-    margin: 0px 15px 0px 0px;
-    border-radius: 12px;
-    color:@textcolor;
-    font-size:14px;
-    font-weight:normal;
+  margin: 0px 15px 0px 0px;
+  border-radius: 12px;
+  color: @textcolor1;
+  font-size: 14px;
+  font-weight: normal;
 }
 
 window#waybar.empty #window {
-    background-color:transparent;
+  background-color: transparent;
 }
 
 /* -----------------------------------------------------
@@ -97,57 +93,56 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 .modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 .modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 /* -----------------------------------------------------
  * Custom Quicklinks
  * ----------------------------------------------------- */
 
-#custom-cliphist, 
-#custom-wallpaper, 
+#custom-cliphist,
+#custom-wallpaper,
 #custom-system,
 #custom-waybarthemes {
-    margin-right: 23px;
-    font-size: 14px;
-    font-weight: bold;
-    color: @iconcolor;
+  margin-right: 23px;
+  font-size: 14px;
+  font-weight: bold;
+  color: @iconcolor;
 }
 
 #custom-settings {
-    margin-right: 15px;
+  margin-right: 15px;
 }
-
 
 #custom-wallpaper {
-    margin-right: 14px;
+  margin-right: 14px;
 }
 
-#custom-waybarthemes,#custom-system {
-    margin-right:15px;
+#custom-waybarthemes,
+#custom-system {
+  margin-right: 15px;
 }
-
 
 /* -----------------------------------------------------
- * Idle Inhibator
+ * Idle Inhibitor
  * ----------------------------------------------------- */
 
- #idle_inhibitor {
-    margin-right: 15px;
-    font-size: 16px;
-    font-weight: bold;
-    color: @iconcolor;
+#idle_inhibitor {
+  margin-right: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: @iconcolor;
 }
 
 #idle_inhibitor.activated {
-    margin-right: 15px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #dc2f2f;
+  margin-right: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #eb6f92; /* Love */
 }
 
 /* -----------------------------------------------------
@@ -155,9 +150,9 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-appmenuicon {
-    font-size: 20px;
-    color: @textcolor;
-    margin: 0px 15px 0px 10px;
+  font-size: 20px;
+  color: @textcolor1;
+  margin: 0px 15px 0px 10px;
 }
 
 /* -----------------------------------------------------
@@ -165,10 +160,10 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-exit {
-    margin: 0px 20px 0px 0px;
-    padding:0px;
-    font-size:16px;
-    color: @iconcolor;
+  margin: 0px 20px 0px 0px;
+  padding: 0px;
+  font-size: 16px;
+  color: @iconcolor;
 }
 
 /* -----------------------------------------------------
@@ -176,21 +171,21 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-updates {
-    font-size: 14px;
-    color: @textcolor;
-    border-radius: 15px;
-    margin: 0px 15px 0px 0px;
+  font-size: 14px;
+  color: @textcolor1;
+  border-radius: 15px;
+  margin: 0px 15px 0px 0px;
 }
 
 #custom-updates.green {
 }
 
 #custom-updates.yellow {
-    color: #ff9a3c;
+  color: #f6c177; /* Gold */
 }
 
 #custom-updates.red {
-    color: #dc2f2f;
+  color: #eb6f92; /* Love */
 }
 
 /* -----------------------------------------------------
@@ -198,26 +193,29 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-youtube {
-    background-color: @backgroundlight;
-    font-size: 14px;
-    color: @textcolor2;
-    border-radius: 15px;
-    margin: 0px 15px 0px 0px;
+  background-color: @backgroundlight;
+  font-size: 14px;
+  color: @textcolor2;
+  border-radius: 15px;
+  margin: 0px 15px 0px 0px;
 }
 
 /* -----------------------------------------------------
  * Hardware Group
  * ----------------------------------------------------- */
 
- #disk,#memory,#cpu,#language {
-    margin:0px;
-    padding:0px;
-    font-size:14px;
-    color:@iconcolor;
+#disk,
+#memory,
+#cpu,
+#language {
+  margin: 0px;
+  padding: 0px;
+  font-size: 14px;
+  color: @iconcolor;
 }
 
 #language {
-    margin-right:10px;
+  margin-right: 10px;
 }
 
 /* -----------------------------------------------------
@@ -225,9 +223,9 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #clock {
-    font-size: 15px;
-    color: @textcolor;
-    margin: 0px 15px 0px 0px;
+  font-size: 15px;
+  color: @textcolor1;
+  margin: 0px 15px 0px 0px;
 }
 
 /* -----------------------------------------------------
@@ -235,14 +233,14 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #pulseaudio {
-    font-size: 14px;
-    color: @textcolor;
-    border-radius: 15px;
-    margin: 0px 15px 0px 0px;
+  font-size: 14px;
+  color: @textcolor1;
+  border-radius: 15px;
+  margin: 0px 15px 0px 0px;
 }
 
 #pulseaudio.muted {
-    color: @textcolor;
+  color: @textcolor1;
 }
 
 /* -----------------------------------------------------
@@ -250,35 +248,37 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #network {
-    font-size: 14px;
-    color: @textcolor;
-    border-radius: 15px;
-    margin: 0px 15px 0px 0px;
+  font-size: 14px;
+  color: @textcolor1;
+  border-radius: 15px;
+  margin: 0px 15px 0px 0px;
 }
 
 #network.ethernet {
-    color: @textcolor;
+  color: @textcolor1;
 }
 
 #network.wifi {
-    color: @textcolor;
+  color: @textcolor1;
 }
 
 /* -----------------------------------------------------
  * Bluetooth
  * ----------------------------------------------------- */
 
- #bluetooth, #bluetooth.on, #bluetooth.connected {
-    font-size: 14px;
-    color: @textcolor;
-    border-radius: 15px;
-    margin: 10px 15px 10px 0px;
+#bluetooth,
+#bluetooth.on,
+#bluetooth.connected {
+  font-size: 14px;
+  color: @textcolor1;
+  border-radius: 15px;
+  margin: 10px 15px 10px 0px;
 }
 
 #bluetooth.off {
-    background-color: transparent;
-    padding: 0px;
-    margin: 0px;
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
 }
 
 /* -----------------------------------------------------
@@ -286,30 +286,31 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #battery {
-    font-size: 14px;
-    color: @textcolor;
-    border-radius: 15px;
-    margin: 10px 15px 10px 0px;
+  font-size: 14px;
+  color: @textcolor1;
+  border-radius: 15px;
+  margin: 10px 15px 10px 0px;
 }
 
-#battery.charging, #battery.plugged {
-    color: @textcolor;
+#battery.charging,
+#battery.plugged {
+  color: @textcolor1;
 }
 
 @keyframes blink {
-    to {
-        background-color: @backgroundlight;
-        color: @textcolor2;
-    }
+  to {
+    background-color: @backgroundlight;
+    color: @textcolor2;
+  }
 }
 
 #battery.critical:not(.charging) {
-    color: #f53c3c;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: #eb6f92; /* Love */
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 /* -----------------------------------------------------
@@ -317,16 +318,16 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #tray {
-    margin:0px 10px 0px 0px;
+  margin: 0px 10px 0px 0px;
 }
 
 #tray > .passive {
-    -gtk-icon-effect: dim;
+  -gtk-icon-effect: dim;
 }
 
 #tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+  -gtk-icon-effect: highlight;
+  background-color: #eb6f92; /* Love */
 }
 
 /* -----------------------------------------------------
@@ -334,9 +335,9 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 label:focus {
-    background-color: #000000;
+  background-color: #000000;
 }
 
 #backlight {
-    background-color: #90b1b1;
+  background-color: #9ccfd8; /* Foam */
 }
