@@ -22,6 +22,7 @@ return {
           liquid = { 'prettier' },
           lua = { 'stylua' },
           python = { 'isort', 'black' },
+          sql = { 'sqlfmt' },
         },
         format_on_save = {
           lsp_fallback = true,

@@ -1,5 +1,5 @@
 return {
-  { -- LSP Configuration & Plugins
+  { -- LSP Configuration & Pluginslsp
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for neovim
@@ -88,7 +88,6 @@ return {
       --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
       --
@@ -110,6 +109,7 @@ return {
             },
           },
         },
+        sqlls = {},
         tsserver = {},
         lua_ls = {
           -- cmd = {...},
@@ -153,6 +153,8 @@ return {
         'rust_analyzer',
         -- 'biome',
         'gopls',
+        'sqlfmt',
+        'sqlls',
         'delve',
         'tsserver',
         'html',
@@ -170,12 +172,18 @@ return {
         'black', -- python formatter
         'pylint',
         'eslint',
+        'java-test',
+        'java-debug-adapter',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
         handlers = {
           function(server_name)
+            if server_name == 'jdtls' then
+              return -- Skip setup for jdtls
+            end
+
             local server = servers[server_name] or {}
             require('lspconfig')[server_name].setup {
               cmd = server.cmd,
