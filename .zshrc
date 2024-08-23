@@ -84,7 +84,7 @@ alias gpush='git push origin'
 alias lg='lazygit'
 
 # Downloads Aliases
-alias yd='yt-dlp -f "bestvideo[height<=1080]+bestaudio" --embed-chapters --external-downloader aria2c --concurrent-fragments 8 --throttled-rate 100K'
+alias yd='yt-dlp -f "bestvideo+bestaudio" --embed-chapters --external-downloader aria2c --concurrent-fragments 8 --throttled-rate 100K'
 alias td='yt-dlp --external-downloader aria2c -o "%(title)s."'
 alias download='aria2c --split=16 --max-connection-per-server=16 --timeout=600 --max-download-limit=10M --file-allocation=none'
 

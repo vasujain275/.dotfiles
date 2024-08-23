@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Remove the old wallpaper if it exists
-rm -f $HOME/.cache/wall.png
+rm -f "$HOME/.cache/wall.png"
 
 # Check if an argument is provided
 if [ -z "$1" ]; then
@@ -21,15 +21,15 @@ mkdir -p "$HOME/.cache"
 # Get the file extension
 extension="${input_file##*.}"
 
-# Convert to png if necessary
+# Convert to PNG if necessary
 case "$extension" in
   png|PNG)
     # Directly copy if it's already a PNG
     cp "$input_file" "$output_file"
     ;;
   jpg|jpeg|JPG|JPEG)
-    # Convert to PNG using ffmpeg with optimized settings
-    ffmpeg -i "$input_file" -vf "scale=iw*sar:ih" -q:v 1 -pix_fmt rgb24 -frames:v 1 "$output_file"
+    # Convert to PNG using ImageMagick with optimized settings
+    magick "$input_file" "$output_file"
     ;;
   *)
     echo "Unsupported file format. Please provide a PNG, JPG, or JPEG file."
@@ -38,3 +38,5 @@ case "$extension" in
 esac
 
 echo "Wallpaper image created at $output_file"
+
+killall -SIGUSR2 hyprpaper && hyprpaper &
