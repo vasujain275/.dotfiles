@@ -37,7 +37,7 @@
     },
 
      "custom/rofi": {
-        "format": "  {}",
+        "format": "  {}",
         "on-click": "rofi -show drun"
 	},
 
