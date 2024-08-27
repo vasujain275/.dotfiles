@@ -39,4 +39,6 @@ esac
 
 echo "Wallpaper image created at $output_file"
 
-killall -SIGUSR2 hyprpaper && hyprpaper &
+swww img ~/.cache/wall.png
+
+
