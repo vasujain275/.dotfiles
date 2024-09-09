@@ -1,6 +1,6 @@
 # default apps
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR="nixCats"
+export VISUAL="nixCats"
 export TERMINAL="kitty"
 export BROWSER="firefox"
 
